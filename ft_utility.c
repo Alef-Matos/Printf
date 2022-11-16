@@ -1,24 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf.h                                           :+:      :+:    :+:   */
+/*   put_all.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: almatos <almatos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/16 10:17:10 by almatos           #+#    #+#             */
-/*   Updated: 2022/11/16 18:54:27 by almatos          ###   ########.fr       */
+/*   Created: 2022/11/16 18:00:24 by almatos           #+#    #+#             */
+/*   Updated: 2022/11/16 18:11:34 by almatos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRINTF_H
+#include "printf.h"
 
-# define PRINTF_H
-
-# include <stdarg.h>
-# include <unistd.h>
-
-int		ft_printf(const char *format_str, ...);
-char	*ft_strchr(const char *s, int c);
-int		ft_putchar(char c);
-
-#endif
+int	ft_putchar(char c)
+{
+	write(1, &c, 1);
+	return (1);
+}
