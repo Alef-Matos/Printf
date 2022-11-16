@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   printf.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: almatos <almatos@student.42.fr>            +#+  +:+       +#+        */
+/*   By: almatos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 10:17:10 by almatos           #+#    #+#             */
-/*   Updated: 2022/11/16 10:17:16 by almatos          ###   ########.fr       */
+/*   Updated: 2022/11/16 11:31:07 by almatos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 
 # define PRINTF_H
 
-
+# include <stdarg.h>
+# include <unistd.h>
+# include <stdlib.h>
+# include <stdio.h>
 
 #endif
