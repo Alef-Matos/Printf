@@ -6,56 +6,59 @@
 /*   By: almatos <almatos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 11:51:53 by almatos           #+#    #+#             */
-/*   Updated: 2022/11/16 18:51:49 by almatos          ###   ########.fr       */
+/*   Updated: 2022/11/17 18:32:49 by almatos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h" 
 
-static int	check_flags(const char *frmt_str, va_list prmts)
+static int	ft_check_flags(char str, va_list prmts)
 {
-	if (frmt_str[1] == '%')
-		return (ft_putchar(frmt_str[1]));
-	else if (frmt_str[1] == 'c') // Caractere
-		return (ft_putchar(va_arg(prmts, int)));
-	else if (frmt_str[1] == 's') // String
-		return (0);
-	else if (frmt_str[1] == 'd') // Decimal base 10
-		return (0);
-	else if (frmt_str[1] == 'i') // Inteiro base 10
-		return (0);
-	else if (frmt_str[1] == 'u') // Decimal Sem sinal
-		return (0);
-	else if (frmt_str[1] == 'p') // Pointer
-		return (0);
-	else if ((frmt_str[1] == 'x') && (frmt_str[1] == 'X')) // Hexadecimal
+	if (str == '%')
+		return (ft_printf_c('%'));
+	if (str == 'c')
+		return (ft_printf_c(va_arg(prmts, int)));
+	else if (str == 's')
+		return (ft_printf_s(va_arg(prmts, char *)));
+	else if (str == 'd')
+		return (1);
+	else if (str == 'i')
+		return (1);
+	else if (str == 'u')
+		return (1);
+	else if (str == 'p')
+		return (1);
+	else if ((str == 'x') && (str == 'X'))
 	{
-		if (frmt_str[1] == 'x')
-			return (0);
-		else 
-			return (0);
+		if (str == 'x')
+			return (1);
+		else
+			return (1);
 	}
-	else
-		return (0);
+	return (0);
 }
 
-int	ft_printf(const char *format_str, ...)
+int	ft_printf(const char *str, ...)
 {
-	va_list	parameters;
-	int		n_of_char;
+	va_list	prmts;
+	int		char_count;
 
-	va_start(parameters, format_str);
-	n_of_char = 0;
-	while (*format_str)
+	va_start(prmts, str);
+	char_count = 0;
+	while (*str)
 	{
-		if (*format_str == '%' && ft_strchr("cspdiuxX%", format_str[1]))
+		if (*str != '%')
 		{
-			n_of_char = check_flags(format_str++, parameters);
-			format_str++;
+			char_count++;
+			ft_printf_c(*str);
 		}	
-		n_of_char += ft_putchar(* (char *)format_str);
-		format_str++;
+		else
+		{
+			str++;
+			char_count = char_count + ft_check_flags(*str, prmts);
+		}
+		str++;
 	}
-	va_end(parameters);
-	return (n_of_char);
+	va_end(prmts);
+	return (char_count);
 }
