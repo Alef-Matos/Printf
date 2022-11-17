@@ -6,13 +6,13 @@
 /*   By: almatos <almatos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 11:51:53 by almatos           #+#    #+#             */
-/*   Updated: 2022/11/17 18:32:49 by almatos          ###   ########.fr       */
+/*   Updated: 2022/11/17 18:43:52 by almatos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h" 
 
-static int	ft_check_flags(char str, va_list prmts)
+int	ft_check_flags(char str, va_list prmts)
 {
 	if (str == '%')
 		return (ft_printf_c('%'));
@@ -40,25 +40,22 @@ static int	ft_check_flags(char str, va_list prmts)
 
 int	ft_printf(const char *str, ...)
 {
-	va_list	prmts;
+	va_list	param;
 	int		char_count;
 
-	va_start(prmts, str);
+	va_start(param, str);
 	char_count = 0;
 	while (*str)
 	{
 		if (*str != '%')
-		{
-			char_count++;
-			ft_printf_c(*str);
-		}	
+			char_count = char_count + ft_printf_c(*str);
 		else
 		{
 			str++;
-			char_count = char_count + ft_check_flags(*str, prmts);
+			char_count = char_count + ft_check_flags(*str, param);
 		}
 		str++;
 	}
-	va_end(prmts);
+	va_end(param);
 	return (char_count);
 }
