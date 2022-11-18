@@ -6,13 +6,13 @@
 /*   By: almatos <almatos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 11:51:53 by almatos           #+#    #+#             */
-/*   Updated: 2022/11/18 15:06:18 by almatos          ###   ########.fr       */
+/*   Updated: 2022/11/18 15:48:02 by almatos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h" 
+#include "ft_printf.h"
 
-int	ft_pup_nb(long long n, char *base, int base_size)
+int	ft_put_nb(long long n, char *base, int base_size)
 {
 	int				c_count;
 
@@ -30,19 +30,23 @@ int	ft_pup_nb(long long n, char *base, int base_size)
 	return (c_count);
 }
 
-int	ft_put_np(long long n, char *base, int base_size)
+int	ft_put_np(unsigned long long n, char *base, int base_size, int nil)
 {
 	int	c_count;
 
-	c_count = 2;
-	if (!n)
+	c_count = 0;
+	if (!n && nil == 0)
 	{
-		write(1, "(nill)", 5);
+		write(1, "(nil)", 5);
 		return (5);
 	}
-	ft_put_s("0x");
+	if (nil == 0)
+	{
+		ft_put_s("0x");
+		c_count = c_count + 2;
+	}
 	if (n / base_size > 0)
-		c_count = c_count + ft_put_nb(n / base_size, base, base_size);
+		c_count = c_count + ft_put_np(n / base_size, base, base_size, 1);
 	ft_put_c(base[n % base_size]);
 	c_count++;
 	return (c_count);
@@ -61,7 +65,7 @@ int	ft_check_flags(char str, va_list param)
 	else if (str == 'u')
 		return (ft_put_nb(va_arg(param, unsigned int), "0123456789", 10));
 	else if (str == 'p')
-		return (ft_put_np(va_arg(param, long), "0123456789abcdef", 16));
+		return (ft_put_np(va_arg(param, long int), "0123456789abcdef", 16, 0));
 	else if (str == 'x')
 		return (ft_put_nb(va_arg(param, unsigned int), "0123456789abcdef", 16));
 	else if (str == 'X')

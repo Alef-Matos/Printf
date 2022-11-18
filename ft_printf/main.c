@@ -6,11 +6,11 @@
 /*   By: almatos <almatos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 15:06:00 by almatos           #+#    #+#             */
-/*   Updated: 2022/11/18 15:06:51 by almatos          ###   ########.fr       */
+/*   Updated: 2022/11/18 15:47:22 by almatos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 #include <stdio.h>
 
 int	main(void)
@@ -24,8 +24,8 @@ int	main(void)
 	numero = -100;
 	str_teste = "ola tudo bem?";
 	teste = 'b';
-	n = ft_printf("strings: %p\n", &numero);
-	n2 = printf("strings: %p\n", &numero);
+	n = ft_printf("strings: %p%p%p\n", 0, 0, 0);
+	n2 = printf("strings: %p%p%p\n", 0, 0, 0);
 
 	printf("teste: %d\n", n);
 	printf("teste: %d", n2);

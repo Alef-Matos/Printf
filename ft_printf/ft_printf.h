@@ -1,20 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: almatos <almatos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/25 12:29:56 by almatos           #+#    #+#             */
-/*   Updated: 2022/10/31 18:04:09 by almatos          ###   ########.fr       */
+/*   Created: 2022/11/16 10:17:10 by almatos           #+#    #+#             */
+/*   Updated: 2022/11/18 15:35:47 by almatos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef FT_PRINTF_H
 
-int	ft_isalpha(int c)
-{
-	if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122))
-		return (1);
-	return (0);
-}
+# define FT_PRINTF_H
+
+# include <stdarg.h>
+# include <unistd.h>
+
+int			ft_printf(const char *format_str, ...);
+int			ft_check_flags(char str, va_list prmts);
+int			ft_put_s(char *s);
+int			ft_put_c(char c);
+int			ft_put_len(const char *s);
+int			ft_put_nb(long long n, char *base, int base_size);
+int			ft_put_np(unsigned long long n, char *base, int base_size, int fe);
+
+#endif
