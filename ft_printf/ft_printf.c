@@ -6,7 +6,7 @@
 /*   By: almatos <almatos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 11:51:53 by almatos           #+#    #+#             */
-/*   Updated: 2022/11/17 18:43:52 by almatos          ###   ########.fr       */
+/*   Updated: 2022/11/18 09:01:08 by almatos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,7 @@ int	ft_check_flags(char str, va_list prmts)
 		return (ft_printf_c(va_arg(prmts, int)));
 	else if (str == 's')
 		return (ft_printf_s(va_arg(prmts, char *)));
-	else if (str == 'd')
-		return (1);
-	else if (str == 'i')
+	else if (str == 'd' || str == 'i')
 		return (1);
 	else if (str == 'u')
 		return (1);

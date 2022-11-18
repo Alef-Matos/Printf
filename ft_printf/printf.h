@@ -6,7 +6,7 @@
 /*   By: almatos <almatos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 10:17:10 by almatos           #+#    #+#             */
-/*   Updated: 2022/11/17 18:44:19 by almatos          ###   ########.fr       */
+/*   Updated: 2022/11/18 09:04:14 by almatos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 # include <stdarg.h>
 # include <unistd.h>
-# include "/home/almatos/ft_printf/ft_printf/libft/libft.h"
+# include "/nfs/homes/almatos/ft_printf/ft_printf/libft/libft.h"
 
 int			ft_printf(const char *format_str, ...);
 int			ft_check_flags(char str, va_list prmts);
