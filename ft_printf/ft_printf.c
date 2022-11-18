@@ -6,54 +6,106 @@
 /*   By: almatos <almatos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 11:51:53 by almatos           #+#    #+#             */
-/*   Updated: 2022/11/18 09:01:08 by almatos          ###   ########.fr       */
+/*   Updated: 2022/11/18 15:06:18 by almatos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h" 
 
-int	ft_check_flags(char str, va_list prmts)
+int	ft_pup_nb(long long n, char *base, int base_size)
+{
+	int				c_count;
+
+	c_count = 0;
+	if (n < 0)
+	{
+		ft_put_c('-');
+		n = n * -1;
+		c_count++;
+	}
+	if (n / base_size > 0)
+		c_count = c_count + ft_put_nb(n / base_size, base, base_size);
+	ft_put_c(base[n % base_size]);
+	c_count++;
+	return (c_count);
+}
+
+int	ft_put_np(long long n, char *base, int base_size)
+{
+	int	c_count;
+
+	c_count = 2;
+	if (!n)
+	{
+		write(1, "(nill)", 5);
+		return (5);
+	}
+	ft_put_s("0x");
+	if (n / base_size > 0)
+		c_count = c_count + ft_put_nb(n / base_size, base, base_size);
+	ft_put_c(base[n % base_size]);
+	c_count++;
+	return (c_count);
+}
+
+int	ft_check_flags(char str, va_list param)
 {
 	if (str == '%')
-		return (ft_printf_c('%'));
-	if (str == 'c')
-		return (ft_printf_c(va_arg(prmts, int)));
+		return (ft_put_c('%'));
+	else if (str == 'c')
+		return (ft_put_c(va_arg(param, int)));
 	else if (str == 's')
-		return (ft_printf_s(va_arg(prmts, char *)));
+		return (ft_put_s(va_arg(param, char *)));
 	else if (str == 'd' || str == 'i')
-		return (1);
+		return (ft_put_nb(va_arg(param, int), "0123456789", 10));
 	else if (str == 'u')
-		return (1);
+		return (ft_put_nb(va_arg(param, unsigned int), "0123456789", 10));
 	else if (str == 'p')
-		return (1);
-	else if ((str == 'x') && (str == 'X'))
-	{
-		if (str == 'x')
-			return (1);
-		else
-			return (1);
-	}
+		return (ft_put_np(va_arg(param, long), "0123456789abcdef", 16));
+	else if (str == 'x')
+		return (ft_put_nb(va_arg(param, unsigned int), "0123456789abcdef", 16));
+	else if (str == 'X')
+		return (ft_put_nb(va_arg(param, unsigned int), "0123456789ABCDEF", 16));
 	return (0);
 }
 
 int	ft_printf(const char *str, ...)
 {
 	va_list	param;
-	int		char_count;
+	int		c_count;
 
 	va_start(param, str);
-	char_count = 0;
+	c_count = 0;
 	while (*str)
 	{
 		if (*str != '%')
-			char_count = char_count + ft_printf_c(*str);
+			c_count = c_count + ft_put_c(*str);
 		else
 		{
 			str++;
-			char_count = char_count + ft_check_flags(*str, param);
+			c_count = c_count + ft_check_flags(*str, param);
 		}
 		str++;
 	}
 	va_end(param);
-	return (char_count);
+	return (c_count);
 }
+
+/* 
+### USANDO FT_PUT_C ####
+• %% imprimir um sinal de porcentagem. 
+• %c imprime um único caractere.
+
+### USANDO FT_PUT_S ####
+• %s imprime uma string.
+
+### USANDO FT_PUT_NP ####
+• %p O argumento void * ponteiro é impresso em hexadecimal.
+
+### USANDO FT_PUT_NB ####
+• %d e %i imprime um número decimal / imprime um inteiro (base 10).
+
+• %u imprime um número decimal sem sinal (base 10).
+
+• %x imprime um número em hexadecimal (base 16).
+*/
