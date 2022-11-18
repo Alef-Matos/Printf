@@ -6,7 +6,7 @@
 /*   By: almatos <almatos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 11:51:53 by almatos           #+#    #+#             */
-/*   Updated: 2022/11/18 15:48:02 by almatos          ###   ########.fr       */
+/*   Updated: 2022/11/18 16:01:38 by almatos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,17 +30,17 @@ int	ft_put_nb(long long n, char *base, int base_size)
 	return (c_count);
 }
 
-int	ft_put_np(unsigned long long n, char *base, int base_size, int nil)
+int	ft_put_np(unsigned long long n, char *base, int base_size, int frist_exec)
 {
 	int	c_count;
 
 	c_count = 0;
-	if (!n && nil == 0)
+	if (!n && frist_exec == 0)
 	{
 		write(1, "(nil)", 5);
 		return (5);
 	}
-	if (nil == 0)
+	if (frist_exec == 0)
 	{
 		ft_put_s("0x");
 		c_count = c_count + 2;
