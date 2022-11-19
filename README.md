@@ -1,6 +1,6 @@
 # Project 2: Prinft <a href="https://github.com/JaeSeoKim/badge42"><img src="https://badge42.vercel.app/api/v2/cla88p9vf00110fmd8v1byjg9/project/2880861" alt="almatos's 42 ft_printf Score" /></a>
 
-## índice
+## Índice
 
 - [Introdução](#introdução)
 - [Parte obrigatória](#parte-obrigatória)
@@ -34,7 +34,10 @@ O objetivo desse projeto é recriar a função `printf` e aprender a como usa a 
 
 ## Tarefas
 
-- :ballot_box_with_check: Printf - Testado pela francinette 
-╔════════════════════════════════════════════════════════════╗
-║        🎉🥳 All tests passed! Congratulations! 🥳🎉      ║
-╚════════════════════════════════════════════════════════════╝
+- :ballot_box_with_check: Printf - Testado pela francinette
+
+```c
+╔═══════════════════════════════════════════════════════════╗
+║      🎉🥳 All tests passed! Congratulations! 🥳🎉       ║
+╚═══════════════════════════════════════════════════════════╝
+```
