@@ -1,4 +1,4 @@
-# Project 2: Prinft 
+# Project 2: Prinft <a href="https://github.com/JaeSeoKim/badge42"><img src="https://badge42.vercel.app/api/v2/cla88p9vf00110fmd8v1byjg9/project/2880861" alt="almatos's 42 ft_printf Score" /></a>
 
 ## índice
 
