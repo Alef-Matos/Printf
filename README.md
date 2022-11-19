@@ -34,7 +34,7 @@ O objetivo desse projeto é recriar a função `printf` e aprender a como usa a 
 
 ## Tarefas
 
-- :ballot_box_with_check: Printf - Testado pela francinette
+- :ballot_box_with_check: Printf - Testado pela [francinette](https://github.com/xicodomingues/francinette) 
 
 ```c
 ╔═══════════════════════════════════════════════════════════╗
