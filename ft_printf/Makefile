@@ -6,7 +6,7 @@
 #    By: almatos <almatos@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/16 10:20:21 by almatos           #+#    #+#              #
-#    Updated: 2022/11/18 16:08:36 by almatos          ###   ########.fr        #
+#    Updated: 2022/11/19 12:27:56 by almatos          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ CC = @cc
 RM = @rm -f
 AR = @ar -rcs
 
-SOURCES	= ft_printf.c ft_printf_utility.c
+SOURCES	= ft_printf.c ft_utility.c
 OBJECTS	= $(SOURCES:.c=.o)
 
 all:		$(NAME)
