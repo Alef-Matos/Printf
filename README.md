@@ -12,6 +12,7 @@
 O objetivo desse projeto é recriar a função `printf` e aprender a como usa a lista de argumentos, Usando `va_arg` e suas `macros`.
 
 ## Parte obrigatória
+<div align="center">
 <img src="https://fv9-5.failiem.lv/thumb_show.php?i=zzswy5thk&download_checksum=7c62a80aa4bca2d610a5427120fa542f9552cefc&download_timestamp=1668862018" />
 </div>
 
