@@ -20,15 +20,15 @@ O objetivo desse projeto é recriar a função `printf` e aprender a como usa a 
 <details open>
 <summary> Printf conversões </summary>
 
-- :ballot_box_with_check: c
-- :ballot_box_with_check: s
-- :ballot_box_with_check: p
-- :ballot_box_with_check: d
-- :ballot_box_with_check: i
-- :ballot_box_with_check: u
-- :ballot_box_with_check: x
-- :ballot_box_with_check: X
-- :ballot_box_with_check: %
+- :ballot_box_with_check: c - imprime um único caractere.
+- :ballot_box_with_check: s - imprime uma string.
+- :ballot_box_with_check: p - O argumento void * ponteiro é impresso em hexadecimal.
+- :ballot_box_with_check: d - imprime um número decimal (base 10).
+- :ballot_box_with_check: i - imprime um inteiro na base 10.
+- :ballot_box_with_check: u - imprime um número decimal sem sinal (base 10).
+- :ballot_box_with_check: x - imprime um número em hexadecimal (base 16).
+- :ballot_box_with_check: X - imprime um número em hexadecimal (base 16).
+- :ballot_box_with_check: % - imprimir um sinal de porcentagem.
 
 </details>
 
