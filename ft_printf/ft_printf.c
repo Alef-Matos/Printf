@@ -6,17 +6,14 @@
 /*   By: almatos <almatos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 11:51:53 by almatos           #+#    #+#             */
-/*   Updated: 2022/11/21 13:45:44 by almatos          ###   ########.fr       */
+/*   Updated: 2022/11/21 14:54:23 by almatos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_put_s(char *s)
+int	ft_put_s(char *s, int len)
 {
-	int	len;
-
-	len = 0;
 	if (!s)
 		return (write(1, "(null)", 6));
 	while (s[len])
@@ -45,11 +42,10 @@ int	ft_put_p(unsigned long long n, char *b, int b_size, int frist_exec)
 	if (!n && frist_exec == 0)
 		return (write(1, "(nil)", 5));
 	if (frist_exec == 0)
-		c_count += ft_put_s("0x");
+		c_count += ft_put_s("0x", 0);
 	if (n / b_size > 0)
 		c_count += ft_put_p(n / b_size, b, b_size, 1);
-	write(1, &b[n % b_size], 1);
-	c_count++;
+	c_count += write(1, &b[n % b_size], 1);
 	return (c_count);
 }
 
@@ -63,7 +59,7 @@ int	ft_check_flags(char str, va_list prm, int c)
 		return (write(1, &c, 1));
 	}
 	else if (str == 's')
-		return (ft_put_s(va_arg(prm, char *)));
+		return (ft_put_s(va_arg(prm, char *), 0));
 	else if (str == 'd' || str == 'i')
 		return (ft_put_b(va_arg(prm, int), "0123456789", 10, 0));
 	else if (str == 'u')
