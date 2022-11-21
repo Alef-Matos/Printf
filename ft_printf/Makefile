@@ -6,7 +6,7 @@
 #    By: almatos <almatos@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/16 10:20:21 by almatos           #+#    #+#              #
-#    Updated: 2022/11/19 12:27:56 by almatos          ###   ########.fr        #
+#    Updated: 2022/11/21 09:22:20 by almatos          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,6 @@ all:		$(NAME)
 
 $(NAME):	$(OBJECTS)
 			$(AR) $(NAME) $(OBJECTS)
-
 
 clean:
 			$(RM) $(OBJECTS)
